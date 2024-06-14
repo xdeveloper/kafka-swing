@@ -3,6 +3,8 @@
 
 [versions]
 guava = "33.0.0-jre"
+mig = "11.3"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
+mig = { module = "com.miglayout:miglayout-swing", version.ref = "mig"}
