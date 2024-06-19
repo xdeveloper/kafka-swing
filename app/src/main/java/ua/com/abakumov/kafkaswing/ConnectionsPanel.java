@@ -2,6 +2,7 @@ package ua.com.abakumov.kafkaswing;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.UUID;
 
 public class ConnectionsPanel extends JPanel implements SelfClosable, SelfDrawable {
 
@@ -26,7 +27,7 @@ public class ConnectionsPanel extends JPanel implements SelfClosable, SelfDrawab
 
     private JPanel buildConnectionsListPanel(JFrame parentFrame) {
         JPanel connectionsListPanel = new JPanel();
-        var cp1 = new ConnectionPanel(parentFrame, this, "conn-1");
+        var cp1 = new ConnectionPanel(parentFrame, this, "169d7aff-bd64-4256-83d2-5aadd0eeeb0c");
         var cp2 = new ConnectionPanel(parentFrame, this, "conn-2");
         connectionsListPanel.add(cp1);
         connectionsListPanel.add(cp2);

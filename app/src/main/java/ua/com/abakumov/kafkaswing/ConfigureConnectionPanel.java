@@ -2,6 +2,7 @@ package ua.com.abakumov.kafkaswing;
 
 
 import net.miginfocom.swing.MigLayout;
+import ua.com.abakumov.kafkaswing.connections.ConnectionSettingsManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,13 +11,11 @@ public class ConfigureConnectionPanel extends JPanel implements SelfDrawable, Se
 
     private final JFrame parentFrame;
     private final ConnectionsPanel connectionsPanel;
-    private final String connectionId;
     private final ConnectionSettings connectionSettings;
 
     public ConfigureConnectionPanel(JFrame parentFrame, ConnectionsPanel connectionsPanel, String connectionId) {
         this.parentFrame = parentFrame;
         this.connectionsPanel = connectionsPanel;
-        this.connectionId = connectionId;
 
         ConnectionSettingsManager connectionSettingsManager = new ConnectionSettingsManager();
         connectionSettings = connectionSettingsManager.getConnectionSettings(connectionId);
@@ -29,39 +28,19 @@ public class ConfigureConnectionPanel extends JPanel implements SelfDrawable, Se
     }
 
     private JPanel buildEditingPanel() {
-
         JPanel wrapperPanel = new JPanel(new BorderLayout());
-
         JPanel connectionEditingPanel = new JPanel();
         var layout = new MigLayout();
-
         connectionEditingPanel.setLayout(layout);
-        var nameLabel = new JLabel("Configure connection");
-        var nameField = new JTextField(connectionSettings.getId());
-
-        var descriptionLabel = new JLabel("Description");
-        var descriptionField = new JTextField(connectionSettings.getDescription());
-
-        var noteLabel = new JLabel("Note");
-        var noteField = new JTextField(connectionSettings.getNote());
-
-        var datesLabel = new JLabel("Created / updated");
-        var datesField = new JTextField(connectionSettings.getCreated().toString() + connectionSettings.getLastUpdated().toString());
-        datesField.setEditable(false);
-
-        connectionEditingPanel.add(nameLabel);
-        connectionEditingPanel.add(nameField, "wrap");
-        connectionEditingPanel.add(descriptionLabel);
-        connectionEditingPanel.add(descriptionField, "wrap");
-        connectionEditingPanel.add(noteLabel);
-        connectionEditingPanel.add(noteField, "wrap");
-        connectionEditingPanel.add(datesLabel);
-        connectionEditingPanel.add(datesField, "wrap");
-
-
+        UIBuilder.buildDynamicFields(connectionEditingPanel, connectionSettings);
         wrapperPanel.add(new JLabel("Editing"), BorderLayout.NORTH);
         wrapperPanel.add(connectionEditingPanel, BorderLayout.CENTER);
 
+        var saveButton = new JButton("Save");
+        saveButton.addActionListener((x) -> {
+            System.out.println(connectionSettings);
+        });
+        connectionEditingPanel.add(saveButton, "wrap");
         return wrapperPanel;
     }
 
