@@ -1,8 +1,10 @@
 package ua.com.abakumov.kafkaswing;
 
+import ua.com.abakumov.kafkaswing.interfaces.SelfClosable;
+import ua.com.abakumov.kafkaswing.interfaces.SelfDrawable;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.UUID;
 
 public class ConnectionsPanel extends JPanel implements SelfClosable, SelfDrawable {
 
@@ -20,8 +22,18 @@ public class ConnectionsPanel extends JPanel implements SelfClosable, SelfDrawab
     private JPanel buildToolsPanel() {
         JPanel toolsPanel = new JPanel();
         toolsPanel.setLayout(new FlowLayout());
-        JButton addConnectionButton = new JButton("+");
-        toolsPanel.add(addConnectionButton);
+
+        JToolBar toolBar = new JToolBar(JToolBar.VERTICAL);
+        toolBar.setFloatable(false);
+
+        // Back
+        ImageIcon imageIcon = Utils.getImageIcon("/add.png");
+        var addConnectionButton = new JButton(imageIcon);
+        addConnectionButton.addActionListener((actionEvent) -> {
+
+        });
+        toolBar.add(addConnectionButton);
+        toolsPanel.add(toolBar);
         return toolsPanel;
     }
 

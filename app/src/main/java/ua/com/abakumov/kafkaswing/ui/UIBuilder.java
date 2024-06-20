@@ -1,4 +1,7 @@
-package ua.com.abakumov.kafkaswing;
+package ua.com.abakumov.kafkaswing.ui;
+
+import ua.com.abakumov.kafkaswing.ConnectionSettings;
+import ua.com.abakumov.kafkaswing.ui.DocListener;
 
 import javax.swing.*;
 import java.time.Instant;

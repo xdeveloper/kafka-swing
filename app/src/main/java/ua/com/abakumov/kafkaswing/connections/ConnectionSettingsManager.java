@@ -20,7 +20,7 @@ public class ConnectionSettingsManager {
             settings.setLastUpdated(Instant.now());
 
             settings.setClientId("X");
-            settings.setClientSecret("Y");
+            settings.setClientSecret("X");
             settings.setTokenEndpoint("https://nordstrom.oktapreview.com/oauth2/ausud5wgoxiBdIYLX0h7/v1/token");
             settings.setKafkaBroker("brook.nonprod.us-west-2.aws.proton.r53.nordstrom.net:9093");
             return settings;

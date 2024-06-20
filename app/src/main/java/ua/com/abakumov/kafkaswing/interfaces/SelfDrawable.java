@@ -1,4 +1,4 @@
-package ua.com.abakumov.kafkaswing;
+package ua.com.abakumov.kafkaswing.interfaces;
 
 public interface SelfDrawable {
     void drawYourself();

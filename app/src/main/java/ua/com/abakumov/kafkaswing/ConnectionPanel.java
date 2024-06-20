@@ -13,6 +13,12 @@ public class ConnectionPanel extends JPanel {
 
         var name = new JLabel("Connection ID: " + connectionId);
         var connectTo = new JButton("Connect");
+        connectTo.setActionCommand(connectionId);
+        connectTo.addActionListener((actionEvent) -> {
+            var configureClusterPanel = new UseConnectionPanel(parentFrame, connectionsPanel, actionEvent.getActionCommand());
+            connectionsPanel.closeYouself();
+            configureClusterPanel.drawYourself();
+        });
 
         // Configure
         var configure = new JButton(Utils.getImageIcon("/edit.png"));

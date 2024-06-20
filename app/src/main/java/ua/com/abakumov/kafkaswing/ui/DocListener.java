@@ -1,4 +1,6 @@
-package ua.com.abakumov.kafkaswing;
+package ua.com.abakumov.kafkaswing.ui;
+
+import ua.com.abakumov.kafkaswing.ConnectionSettings;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
