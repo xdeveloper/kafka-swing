@@ -39,10 +39,8 @@ public class ConnectionsPanel extends JPanel implements SelfClosable, SelfDrawab
 
     private JPanel buildConnectionsListPanel(JFrame parentFrame) {
         JPanel connectionsListPanel = new JPanel();
-        var cp1 = new ConnectionPanel(parentFrame, this, "169d7aff-bd64-4256-83d2-5aadd0eeeb0c");
-        var cp2 = new ConnectionPanel(parentFrame, this, "conn-2");
+        var cp1 = new ConnectionPanel(parentFrame, this, "connectionId1");
         connectionsListPanel.add(cp1);
-        connectionsListPanel.add(cp2);
         return connectionsListPanel;
     }
 

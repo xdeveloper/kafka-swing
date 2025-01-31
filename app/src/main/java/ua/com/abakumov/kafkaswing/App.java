@@ -3,6 +3,8 @@
  */
 package ua.com.abakumov.kafkaswing;
 
+import com.google.common.eventbus.EventBus;
+
 import javax.swing.*;
 
 public class App {
@@ -11,6 +13,7 @@ public class App {
     }
 
     public static void main(String[] args) {
+
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Kafka Swing");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
